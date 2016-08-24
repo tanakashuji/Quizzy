@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Quizzy
-//
-//  Created by Eoin Molloy on 26/12/2015.
-//  Copyright © 2015 Eoin Molloy. All rights reserved.
-//
-
 import UIKit
 import Social
 import AudioToolbox
@@ -29,32 +21,6 @@ class ViewController: UIViewController {
     var WrongSound: SystemSoundID!
     
     
-//    @IBAction func tweetButton(_ sender: AnyObject) {
-//        
-//        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
-//            let tweetController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-//            tweetController?.setInitialText("I scored \(highScore) in Quizzy, can you beat me ?")
-//            
-//            self.present(tweetController!, animated: true, completion: nil)
-//        }
-//        else {
-//            let alert  = UIAlertController(title: "Accounts", message: "You are not logged in to a twitter account, please login", preferredStyle: UIAlertControllerStyle.alert)
-//            
-//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//            alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.default, handler: {
-//                
-//                (UIAlertAction) in
-//            let URLSettings = URL(string: UIApplicationOpenSettingsURLString)
-//            
-//                if let url = URLSettings {
-//                    UIApplication.shared.openURL(url)
-//                }
-//            
-//            
-//            }))
-//            self.present(alert, animated: true, completion: nil)
-//        }
-//    }
     
     func createSounds(){
         var soundID: SystemSoundID = 0
@@ -70,18 +36,11 @@ class ViewController: UIViewController {
         soundID += 1
     }
     
-//    weak var Score: UILabel!
-//    
-//    weak var Highscore: UILabel!
     
     var Questions = [Question]()
     var questionNumber = Int()
     var answerNumber = Int()
     var scoreNum = 0
-//    var highScore = 0
-//    func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view, typically from a nib.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -343,61 +302,16 @@ LabelEnd.isHidden = false
 Next.isHidden = false
 }
 
-
-//        let HighscoreDefault = UserDefaults.standard
-//        if HighscoreDefault.value(forKey: "Highscore") != nil {
-//            
-//            Highscore.text = NSString(format: "Highscore: %i", highScore) as String
-//        }
-//        RandomQuestion()
-//        createSounds()
-//    }
-
-//    func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    
-//    func RandomQuestion(){
-//        if Questions.count > 0{
-//            //questionNumber = arc4random() Questions.count
-//            Label.text = Questions[questionNumber].question
-//            answerNumber = Questions[questionNumber].answer
-//            
-//            for i in 0..<buttons.count{
-//                buttons[i].setTitle(Questions[questionNumber].answers[i], for: UIControlState())
-//            }
-//            Score.text = NSString(format: "Score: %i", scoreNum) as String
-//            Highscore.text = NSString(format: "Highscore: %i", highScore) as String
-//
-//            if scoreNum > highScore{
-//                highScore = scoreNum
-//                Highscore.text = NSString(format: "Highscore: %i", highScore) as String
-//                
-//                let HighscoreDefault = UserDefaults.standard
-//                HighscoreDefault.setValue(highScore, forKey: "Highscore")
-//                HighscoreDefault.synchronize()
-//            }
-            //This will remove the question from the array but due to the small number I feel better that they can repeat
- //           Questions.remove(at: questionNumber)
-//        }
-//        
-//        else {
-//                NSLog("done")
-//        }
-//    }
-    
     
     @IBAction func button1(_ sender: AnyObject) {
         if answerNumber == 0 {
             scoreNum += 1
             AudioServicesPlaySystemSound(CorrectSound)
-            //RandomQuestion()
         }
         
         else {
             scoreNum = 0
             AudioServicesPlaySystemSound(WrongSound)
-            //RandomQuestion()
         }
         
     }
@@ -412,10 +326,7 @@ Next.isHidden = false
         else {
             scoreNum = 0
             AudioServicesPlaySystemSound(WrongSound)
-            //RandomQuestion()
         }
-
-        
     }
     
     @IBAction func button3(_ sender: AnyObject) {
@@ -437,13 +348,11 @@ Next.isHidden = false
         if answerNumber == 3 {
             scoreNum += 1
             AudioServicesPlaySystemSound(CorrectSound)
-            //RandomQuestion()
         }
             
         else {
             scoreNum = 0
             AudioServicesPlaySystemSound(WrongSound)
-            //RandomQuestion()
 }
     }
 }
